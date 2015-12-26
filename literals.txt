@@ -1,0 +1,20 @@
+TEST     START   4000
+TABLE    RESW    10
+FIRST    LDX    =c'eof'
+         LDA    =10
+BUFF     EQU     FIRST-TABLE
+         LTORG
+         LDA     zero
+         ORG     BUFF
+LOOP     ADD     TABLE,X
+         TIX     K30
+         LDA    =c'eof'
+         JLT     LOOP
+         STA    =x'06'
+         ADD     TOTAL
+         LTORG
+         STA    =x'05'
+TOTAL    RESW    1
+ZERO     WORD    0
+K30      WORD    30
+         END     TEST

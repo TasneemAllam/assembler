@@ -1,0 +1,12 @@
+TEST     START   4000
+FIRST    LDX     zero
+         LDA     zero
+LOOP     ADD     TABLE,X
+         TIX     K30
+         JLT     LOOP
+         STA     TOTAL
+TABLE    RESW    10
+TOTAL    RESW    1
+ZERO     WORD    0
+K30      WORD    30
+         END     TEST
